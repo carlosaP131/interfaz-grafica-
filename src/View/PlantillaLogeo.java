@@ -7,6 +7,8 @@ import java.awt.GraphicsEnvironment;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.File;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -75,6 +77,17 @@ public class PlantillaLogeo extends JFrame implements ActionListener {
         TnombreUsuario.setFont(fontmedia);
         TnombreUsuario.setBorder(Binferiorazul);
         panelderecho.add(TnombreUsuario);
+        TnombreUsuario.addMouseListener(
+                new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+            
+                TnombreUsuario.setText(" ");
+            }
+                
+                }
+        
+        );
         //combo box
         cbTipoUsuario =  new JComboBox();
         cbTipoUsuario.addItem("Invitado");
