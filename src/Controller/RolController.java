@@ -29,20 +29,20 @@ public class RolController extends RegistroControllerBase<Rol> {
 //        super.setRegistro(rol);
 //        super.crearActualizarRegistro();
     }
-//    public void MostrarRegistro (DefaultTableModel modelo){
-//     
-//        List<Rol> listarol = service.ObtenerRegistro();
-//        modelo.setRowCount(0);
-//        for (Rol rol : listarol) {
-//            Object[] fila = new Object[2];
-//            fila[0] =String.valueOf(rol.getIdRol());
-//            fila[1] = rol.getRol();
-//            modelo.addRow(fila);
-//          
-//        }
-//        
-//    }
-//    
+    public void MostrarRegistro (DefaultTableModel modelo){
+     
+        List<Rol> listarol = service.ObtenerRegistro();
+        modelo.setRowCount(0);
+        for (Rol rol : listarol) {
+            Object[] fila = new Object[2];
+            fila[0] =String.valueOf(rol.getIdRol());
+            fila[1] = rol.getRol();
+            modelo.addRow(fila);
+          
+        }
+        
+    }
+    
 //   public void ActualizarRegistro(int idrol,Rol rolnuevo){
 //      service.ActualizarRegistro(idrol,rolnuevo);
 //   

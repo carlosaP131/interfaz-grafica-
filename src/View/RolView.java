@@ -43,7 +43,7 @@ public class RolView extends javax.swing.JFrame {
         modelo = (DefaultTableModel) TABLA1.getModel();
         rolcontroller = new RolController();
         rolcontroller.ini();
- //      controller.MostrarRegistro(modelo);
+      rolcontroller.MostrarRegistro(modelo);
 
     }
 

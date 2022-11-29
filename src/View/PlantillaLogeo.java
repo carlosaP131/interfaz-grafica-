@@ -20,6 +20,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;
+import utilerias.TipoUsuarioEnum;
 
 public class PlantillaLogeo extends JFrame implements ActionListener {
 
@@ -34,7 +35,7 @@ public class PlantillaLogeo extends JFrame implements ActionListener {
     private Border Binferiorazul;
     private Font fontmedia;
     private JComboBox cbTipoUsuario;
-
+    private JButton baceptar;
     public PlantillaLogeo() {
         //CARGAR FUENTE
         generarFunente();
@@ -99,7 +100,16 @@ public class PlantillaLogeo extends JFrame implements ActionListener {
         cbTipoUsuario.setForeground(colorPrincipal);
         ((JLabel)cbTipoUsuario.getRenderer()).setHorizontalAlignment(SwingConstants.CENTER);
        panelderecho.add(cbTipoUsuario);
-                
+         //agregar boton aceptar
+          this.baceptar = new JButton("aceptar");
+        this.baceptar.setBounds(310, 10, 45, 30);
+        this.baceptar.setBackground(Color.blue);
+        this.baceptar.setForeground(Color.white);
+        this.baceptar.setCursor(cMano);
+        this.baceptar.addActionListener(this);
+        this.baceptar.setSize(220,30);
+        this.baceptar.setLocation((panelderecho.getWidth()-cbTipoUsuario.getWidth())/2,260);
+        this.panelderecho.add(this.baceptar);
         //coloacar una imagen
         iDimAux = new ImageIcon(iSvg1.getImage().getScaledInstance(500, 345, Image.SCALE_AREA_AVERAGING));
         lSvg1 = new JLabel();
@@ -140,12 +150,28 @@ public class PlantillaLogeo extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent ae) {
+      
         if (ae.getSource() == this.getbcerrar()) {
             System.exit(0);
 
         }
+        if (ae.getSource() == this.baceptar) {
+            String tipo = this.cbTipoUsuario.getSelectedItem().toString();
+            if (tipo.compareTo(TipoUsuarioEnum.ADMINISTRADOR.getValue())==0) {
+                System.err.println("Usuario de tipo Admin");
+            }
+        if (tipo.compareTo(TipoUsuarioEnum.INVITADO.getValue())==0) {
+                System.err.println("Usuario de tipo Invitado");
+        } 
+                if (tipo.compareTo(TipoUsuarioEnum.NORMAL.getValue())==0) {
+                System.err.println("Usuario de tipo Usuario");
+            
+        }
+        
+        
+        
     }
-
+    }
     public JButton getbcerrar() {
         return this.bCerrar;
     }
