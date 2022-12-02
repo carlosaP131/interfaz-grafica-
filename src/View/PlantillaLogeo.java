@@ -14,8 +14,10 @@ import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
@@ -158,13 +160,13 @@ public class PlantillaLogeo extends JFrame implements ActionListener {
         if (ae.getSource() == this.baceptar) {
             String tipo = this.cbTipoUsuario.getSelectedItem().toString();
             if (tipo.compareTo(TipoUsuarioEnum.ADMINISTRADOR.getValue())==0) {
-                System.err.println("Usuario de tipo Admin");
+                JOptionPane.showMessageDialog(null, "Usuario de tipo Admin");
             }
         if (tipo.compareTo(TipoUsuarioEnum.INVITADO.getValue())==0) {
-                System.err.println("Usuario de tipo Invitado");
+                JOptionPane.showMessageDialog(null, "Usuario de tipo invitado");
         } 
                 if (tipo.compareTo(TipoUsuarioEnum.NORMAL.getValue())==0) {
-                System.err.println("Usuario de tipo Usuario");
+                JOptionPane.showMessageDialog(null, "Usuario de tipo jugador");
             
         }
         
